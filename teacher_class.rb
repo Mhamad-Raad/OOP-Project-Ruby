@@ -1,18 +1,16 @@
-require_relative 'Person.rb'
+require_relative 'Person'
 
 class Teacher < Person
-
-  def initialize(age, name = 'Unknown', parent_permission = true, specialization = 'None')
+  def initialize(age, name: 'Unknown', parent_permission: true, specialization: 'None')
     super(age, name, parent_permission)
     @specialization = specialization
   end
 
   def can_use_services?
-    return true
+    true
   end
 
   def teach_stuff
-    "Everything"
+    'Everything'
   end
-
 end
