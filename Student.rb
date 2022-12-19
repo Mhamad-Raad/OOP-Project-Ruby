@@ -1,4 +1,4 @@
-require 'Person.rb'
+require_relative 'Person.rb'
 
 class Student < Person
 

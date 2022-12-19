@@ -1,4 +1,4 @@
-require 'Person.rb'
+require_relative 'Person.rb'
 
 class Teacher < Person
 
@@ -14,6 +14,5 @@ class Teacher < Person
   def teach_stuff
     "Everything"
   end
-
 
 end

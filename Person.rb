@@ -1,7 +1,7 @@
 class Person 
   attr_accessor :name, :age, :id
 
-  def initialize(name='Unkown', age, parent_permission = true)
+  def initialize(age, name='Unkown',  parent_permission=true)
     @name = name
     @age = age
     @parent_permission = parent_permission
@@ -35,7 +35,5 @@ class Person
     def is_of_age?
       return @age >= 18
     end
-
-
-
+  end
 end
