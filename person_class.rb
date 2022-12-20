@@ -1,5 +1,5 @@
 require_relative 'nameable_class'
-class Person
+class Person < Nameable
   attr_accessor :name, :age, :id
 
   def initialize(age, name: 'Unkown', parent_permission: true)
@@ -15,5 +15,9 @@ class Person
 
   def self.adult?
     @age >= 18
+  end
+
+  def correct_name
+    @name
   end
 end
