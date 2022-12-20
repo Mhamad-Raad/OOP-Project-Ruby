@@ -1,4 +1,4 @@
-# OOP-Project-Ruby
+# OOP school library
 
 <a name="readme-top"></a>
 # 📗 Table of Contents
@@ -19,7 +19,13 @@
 - [📝 License](#license)
 
 # 📖 Getting Started <a name="about-project"></a>
-This repository includes files with plain Ruby which shows OOP.
+Imagine that you are the librarian of OOP University, and you need a tool to record what books are in the library and who borrows them. The app that you will create will allow you to:
+
+- Add new students or teachers.
+- Add new books.
+- Save records of who borrowed a given book and when.
+
+And all of this will be built in a beautiful and well-organized way!
 
 ## 🛠 Built With <a name="built-with"></a>
 - Ruby
@@ -49,7 +55,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone https://github.com/MarcoAurelioAntonioC/Vet-Clinic-rep.git
+  git clone https://github.com/Mhamad-Raad/OOP-Project-Ruby
 ```
 
 
