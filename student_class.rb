@@ -10,9 +10,8 @@ class Student < Person
     '¯(ツ)/¯'
   end
 
-  def classroom=(cr)
-    @classroom = cr
+  def classroom=(crm)
+    @classroom = crm
     classroom.students.push(self) unless classroom.students.includes?(self)
   end
-
 end
