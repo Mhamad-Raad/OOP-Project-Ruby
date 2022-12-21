@@ -6,4 +6,9 @@ attr_accessor :label, :students
     @students = []
   end
 
+  def add_student(student)
+    student.classroom = self
+    @students.push(student)
+  end
+
 end
