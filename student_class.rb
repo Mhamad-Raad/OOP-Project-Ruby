@@ -12,7 +12,7 @@ class Student < Person
 
   def classroom=(cr)
     @classroom = cr
-    classroom.student.push(self) unless classroom.student.includes?(self)
+    classroom.students.push(self) unless classroom.students.includes?(self)
   end
 
 end
