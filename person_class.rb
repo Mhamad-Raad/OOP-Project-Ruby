@@ -1,7 +1,9 @@
-class Person
+require_relative 'nameable_class'
+class Person < Nameable
   attr_accessor :name, :age, :id
 
-  def initialize(age, name: 'Unkown', parent_permission: true)
+  def initialize(age, name = 'Unkown', parent_permission: true)
+    super
     @id = Random.rand(1..1000)
     @name = name
     @age = age
@@ -14,5 +16,9 @@ class Person
 
   def self.adult?
     @age >= 18
+  end
+
+  def correct_name
+    @name
   end
 end
