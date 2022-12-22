@@ -10,6 +10,7 @@ class App
     @rentals = []
   end
 
+  # rubocop:disable Style/CyclomaticComplexity
   def select_opt
     option = gets.chomp.to_i
     case option
@@ -24,6 +25,7 @@ class App
       puts 'PLEASE ENTER A NUMBER (1..7)'
     end
   end
+  # rubocop:enable Style/CyclomaticComplexity
 
   def list_books
     @books.each do |book|
@@ -76,9 +78,16 @@ class App
     number
   end
 
+  def check_permission(permission)
+    case permission
+    when 'y' then permission = true
+    when 'n' then permission = false
+    end
+    permission
+  end
+
   def create_person
     num = check_options('Do you want to create a student (1) or a teacher (2)? [input the number]: ', [1, 2])
-
     age = check_number('Age:')
 
     print 'name:'
@@ -89,10 +98,9 @@ class App
     when 1
       print 'Has parent permission? [y/n]:'
       permission = gets.chomp
-      case permission
-      when 'y' then permission = true
-      when 'n' then permission = false
-      end
+
+      permission = check_permission(permission)
+
       @person.push(Student.new(age, name, classroom, parent_permission: permission))
     when 2
       print 'Specialization:'
