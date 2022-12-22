@@ -1,7 +1,7 @@
 require './student_class'
 require './teacher_class'
-require './book.rb'
-require './rental.rb'
+require './book'
+require './rental'
 
 class App
   def initialize
@@ -33,7 +33,7 @@ class App
 
   def list_people
     @person.each do |p|
-      puts "[#{p.class}] Name: #{p.name}, ID: #{p.id}, Age: #{p.age}"
+      puts "[#{p.class.name}] Name: #{p.name}, ID: #{p.id}, Age: #{p.age}"
     end
   end
 
@@ -93,11 +93,12 @@ class App
       when 'y' then permission = true
       when 'n' then permission = false
       end
-      @person.push(Student.new(age, name, parent_permission: permisssion))
+      @person.push(Student.new(age, name, classroom, parent_permission: permission))
     when 2
       print 'Specialization:'
-      specialization = gets.chomp
-      @person.push(Teacher.new(age, specialization, name))
+      specialty = gets.chomp
+
+      @person.push(Teacher.new(age, specialty, name: name))
     else
       puts 'Invalid number, please enter number again!'
     end
@@ -115,23 +116,30 @@ class App
     @person.each_with_index do |per, index|
       puts "No: #{index + 1}, [#{per.class}] Name: #{per.name}, ID: #{per.id}, Age: #{per.age}"
     end
-    person_num = gets.chomp.to_i
-
+    puts @person[0].name
+    iam = gets.chomp.to_i
+    puts iam
+    puts "HERE #{@person[iam - 1].name}"
+    puts @person[iam - 1].name
     print 'Date:'
     date = gets.chomp
 
-    @rentals.push(Rental.new(date, @person[person_num - 1], @books[book_num - 1]))
+    p_index = iam - 1
+    p @person[p_index]
+    @rentals.push(Rental.new(date, @books[book_num - 1], @person[p_index]))
     puts 'Rental Created successfully'
   end
 
   def list_rentals
     print 'Kindly enter the ID of the person:'
-    id_person = gets.chomp
-    id_person = id_person.to_i
+    id = gets.chomp
+    id = id.to_i
 
     puts 'Rentals'
+
     @rentals.each do |rental|
-      puts "Date: #{rental.date} Book: #{rental.book.title} by #{rental.book.author}" if rental.person.id == id_person
+      puts rental.person
+      puts "Date: #{rental.date} Book: #{rental.book.title} by #{rental.book.author}" if rental.person.id == id
     end
   end
 end
